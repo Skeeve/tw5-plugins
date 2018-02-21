@@ -1,4 +1,6 @@
 language: javascript
+perl:
+  - "5.24"
 
 before_install:
   - npm install tiddlywiki
@@ -7,6 +9,7 @@ install: true
 
 script:
   - cp -r plugins/* node_modules/tiddlywiki/plugins/
+  - perl -i -pe 'BEGIN { use POSIX qw(strftime) } s/\$\{strftime\s+(.*?)\}\$/strftime "$1",gmtime()(stat $ARGV)[9])/g node_modules/tiddlywiki/plugins/*/*/*.js'
   - ./node_modules/.bin/tiddlywiki . --output output --build gui
   - ./node_modules/.bin/tiddlywiki . --output output/library --build library
 
