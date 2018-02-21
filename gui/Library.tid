@@ -1,5 +1,5 @@
-created: 20180221221300000
-modified: ${strfttime %Y%m%d%H%M%S000}$
+created: 20180221211300000
+modified: ${strftime %Y%m%d%H%M%S000}$
 tags: $:/tags/PluginLibrary
 title: Library
 url: https://skeeve.github.io/tw5-plugins/library/index.html

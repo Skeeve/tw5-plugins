@@ -1,5 +1,5 @@
 created: 20180221221300000
-modified: ${strfttime %Y%m%d%H%M%S000}$
+modified: ${strftime %Y%m%d%H%M%S000}$
 title: $:/DefaultTiddlers
 
 Library
