@@ -10,9 +10,8 @@ install: true
 script:
   - cp -r plugins/* node_modules/tiddlywiki/plugins/
   - perl -i -pe 'BEGIN { use POSIX qw(strftime) } s/\$\{strftime\s+(.*?)\}\$/strftime "$1",gmtime((stat $ARGV)[9])/ge' $( find node_modules/tiddlywiki/plugins gui -name \*.tid )
-  - ls gui
-  - ./node_modules/.bin/tiddlywiki . --output output --build gui
   - ./node_modules/.bin/tiddlywiki . --output output/library --build library
+  - ./node_modules/.bin/tiddlywiki . --output output --build gui
 
 deploy:
   provider: pages
