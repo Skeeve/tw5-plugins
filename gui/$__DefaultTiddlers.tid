@@ -2,4 +2,4 @@ created: 20180221221300000
 modified: ${strftime %Y%m%d%H%M%S000}$
 title: $:/DefaultTiddlers
 
-Library
+[[About Skeeve's Plugin Library]]

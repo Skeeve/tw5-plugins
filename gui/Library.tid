@@ -1,9 +1,11 @@
 created: 20180221211300000
 modified: ${strftime %Y%m%d%H%M%S000}$
 tags: $:/tags/PluginLibrary
-title: Library
+title: Skeeve's Plugins Library
 url: https://skeeve.github.io/tw5-plugins/library/index.html
 
-The plugin library for the plugins made by Skeeve. This library only contains plugins that are mature enough for general use. Be aware that I update these plugins on occasion.
+The plugin library for plugins made by Skeeve.
 
-Copy this link to add the plugin library:  [[Library]]
+This library might contains experimental plugins. Be aware that I update these plugins on occasion.
+
+Copy this link to add the plugin library:  [[Skeeve's Plugin Library]]
