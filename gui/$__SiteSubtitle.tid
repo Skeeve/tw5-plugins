@@ -1,5 +1,5 @@
 created: 20180222123000000
 modified: ${strftime %Y%m%d%H%M%S000}$
-title: $:/SiteTitle
+title: $:/SiteSubtitle
 
 A growing collection of plugins
