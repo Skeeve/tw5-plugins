@@ -1,7 +1,7 @@
 [
     {
         "title": "$:/plugins/skeeve/action-incrment",
-        "description": "A ActionWidget to increment a value",
+        "description": "An actionWidget to increment a value",
         "author": "Skeeve",
         "version": "1.0.0",
         "core-version": ">=5.1.3",
