@@ -1,5 +1,5 @@
 #!/bin/bash
-find "$@" -name \*.tid -name \*.tid | while read filename; do
+find "$@" -name \*.tid | while read filename; do
   # get all time stamps for the file, following renames
   allts=$( git log --follow --pretty=%at -- "$filename" )
   # get the oldest timestamp
