@@ -12,6 +12,6 @@ find "$@" -name \*.tid -name \*.tid | while read filename; do
       $ts{modified}='$modified';
       $ts{build}=time;
     }
-    s/\$\{(created|modified|build)\s+(.*?)\}\$/strftime "$2",gmtime($1)/ge;
+    s/\$\{(created|modified|build)\s+(.*?)\}\$/strftime "$2",gmtime($ts{$1})/ge;
   ' "$filename"
 done
