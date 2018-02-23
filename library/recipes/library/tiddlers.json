@@ -3,7 +3,7 @@
         "title": "$:/plugins/skeeve/action-increment",
         "description": "An actionWidget to increment a value",
         "author": "Skeeve",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "core-version": ">=5.1.3",
         "plugin-type": "plugin",
         "list": "",
