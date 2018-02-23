@@ -13,10 +13,10 @@ var assetList = [
         "title": "$:/plugins/skeeve/action-increment",
         "description": "An actionWidget to increment a value",
         "author": "Skeeve",
-        "version": "1.0.3",
+        "version": "1.0.4",
         "core-version": ">=5.1.3",
         "plugin-type": "plugin",
-        "list": "",
+        "list": "readme license",
         "dependents": "",
         "type": "application/json",
         "readme": "! Introduction\n\nThe ''action-increment'' widget is an [[action widget|https://tiddlywiki.com/#ActionWidgets]] that retrieves a value from a text reference. It will then increase the first digit-sequence found in that text and store it.\n\n! Content and Attributes\n\nThe ''action-increment'' widget is invisible. Any content within it is ignored.\n\n|!Attribute |!Description |\n|$reference |Just a normal [[TextReference|https://tiddlywiki.com/#TextReference]] defining where the value to be incremented, is stored |\n\n! Examples\n\n```\n<$button>\n  <$action-increment $reference=\"!!agent\"/>\n  This will increment\n</$button> \"{{!!agent}}\".\n```\n\n<$button>\n  <$action-increment $reference=\"!!agent\"/>\n  This will increment\n</$button> \"{{!!agent}}\".\n"
