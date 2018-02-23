@@ -10,6 +10,7 @@ install: true
 script:
   - ./timestampadjust.sh plugins gui
   - find plugins/skeeve/* -type d -prune -exec cp gui/icon.tid {} \;
+  - find plugins/skeeve -name icon.tid
   - cp -r plugins/* node_modules/tiddlywiki/plugins/
   - ./node_modules/.bin/tiddlywiki . --output output/library --build library
   - ./node_modules/.bin/tiddlywiki . --output output --build gui
