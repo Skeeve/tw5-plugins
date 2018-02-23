@@ -1,5 +1,5 @@
 created: ${created %Y%m%d%H%M%S000}$
-modified: ${modified "%Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
 title: $:/plugins/skeeve/icon
 tags: $:/tags/PluginLibrary
 

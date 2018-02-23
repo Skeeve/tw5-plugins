@@ -1,5 +1,5 @@
 created: ${created %Y%m%d%H%M%S000}$
-modified: ${modified "%Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
 tags: $:/tags/PluginLibrary
 title: Skeeve's Plugins Library
 url: https://skeeve.github.io/tw5-plugins/library/index.html
