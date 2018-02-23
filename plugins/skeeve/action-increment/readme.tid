@@ -20,10 +20,10 @@ The ''action-increment'' widget is invisible. Any content within it is ignored.
 <$button>
   <$action-increment $reference="!!agent"/>
   This will increment
-</$button> "{{!!agent}}".
+</$button> "{{$:/plugins/skeeve/action-increment/readme!!agent}}".
 ```
 
 <$button>
   <$action-increment $reference="!!agent"/>
   This will increment
-</$button> "{{!!agent}}".
+</$button> "{{$:/plugins/skeeve/action-increment/readme!!agent}}".
