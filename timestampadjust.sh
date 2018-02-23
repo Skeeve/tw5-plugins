@@ -1,7 +1,17 @@
 #!/bin/bash
 find "$@" -name \*.tid -name \*.tid | while read filename; do
-  ts=$( git log -n1 --pretty=%at -- "$filename" )
-  perl -MPOSIX -i -pe '
-    s/\$\{strftime\s+(.*?)\}\$/strftime "$1",gmtime('$ts')/ge;
+  # get all time stamps for the file, following renames
+  allts=$( git log --follow --pretty=%at -- "$filename" )
+  # get the oldest timestamp
+  created=${allts##*$'\n'}
+  # get the newest timestamp
+  modified=${allts%%$'\n'*}
+  # Now some patternmatching
+  perl -MPOSIX -i -pe 'BEGIN {
+      $ts{created}='$created';
+      $ts{modified}='$modified';
+      $ts{build}=time;
+    }
+    s/\$\{(created|modified|build))\s+(.*?)\}\$/strftime "$2",gmtime($1)/ge;
   ' "$filename"
 done
