@@ -2,10 +2,11 @@
 find "$@" -name \*.tid | while read filename; do
   # get all time stamps for the file, following renames
   allts=$( git log --follow --pretty=%at -- "$filename" )
+  [ -z "$allts" ] && continue
   # get the oldest timestamp
-  created=$( echo "$allts" | tail -1 )
+  created=${allts##*$'\n'}
   # get the newest timestamp
-  modified=$( echo "$allts" | head -1 )
+  modified=${allts%%$'\n'*}
   # Now some patternmatching
   perl -MPOSIX -i -pe 'BEGIN {
       $ts{created}='$created';
