@@ -6,4 +6,6 @@ title: $:/plugins/skeeve/action-increment/readme
 
 The ''action-increment'' widget is an [[action widget|https://tiddlywiki.com/#ActionWidgets]] that retrieves a value from a text reference. It will then increase the first digit-sequence found in that text and store it.
 
-For more information, please see the {{online documentation#action-increment Plugin||$:/plugins/skeeve/documentation/documentation}}.
+For more information, please see the online documentation.
+
+{{Online Documentation#action-increment Plugin||$:/plugins/skeeve/documentation/documentation}}
