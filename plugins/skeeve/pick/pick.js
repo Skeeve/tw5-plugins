@@ -15,7 +15,7 @@ Filter operator for regexp matching and picking out capturing groups
 /*
 Export our filter function
 */
-regexper = function(source,operator,options, grouping) {
+var regexper = function(source,operator,options, grouping) {
 	var results = [],
 		fieldname = (operator.suffix || "title").toLowerCase(),
 		regexpString, regexp, flags = "", match,
