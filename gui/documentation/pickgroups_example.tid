@@ -5,6 +5,6 @@ title: pickgroups example
 
 The example uses this [[Testdata]].
 
-{{pickgroups||$:/plugins/skeeve/documentation/example}}
+{{pickgroups||$:/plugins/skeeve/documentation/$:/plugin/skeeve/documentation/example}}
 
 Some information about the [[regular expression|pick expression explained]].

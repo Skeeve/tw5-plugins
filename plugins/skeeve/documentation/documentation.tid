@@ -1,6 +1,6 @@
 created: ${created %Y%m%d%H%M%S000}$
 modified: ${modified %Y%m%d%H%M%S000}$
-title: $:/plugins/skeeve/documentation
+title: $:/plugins/skeeve/documentation/documentation
 
 \define documentation(text tiddler) <a href="http://skeeve.github.io/tw5-plugins#$tiddler$">$text$</a>
 

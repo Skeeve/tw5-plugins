@@ -1,6 +1,6 @@
 created: ${created %Y%m%d%H%M%S000}$
 modified: ${modified %Y%m%d%H%M%S000}$
-title: action-increment plugin
+title: ActionIncrementWidget
 
 ! Introduction
 
@@ -13,4 +13,4 @@ The ''action-increment'' widget is invisible. Any content within it is ignored.
 |!Attribute |!Description |
 |$reference |Just a normal [[TextReference|https://tiddlywiki.com/#TextReference]] defining where the value to be incremented, is stored |
 
-[[action-increment Examples]]
+[[action-increment Example]]

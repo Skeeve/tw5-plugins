@@ -1,7 +1,7 @@
 created: ${created %Y%m%d%H%M%S000}$
 modified: ${modified %Y%m%d%H%M%S000}$
-tags: 
-title: $:/plugins/skeeve/documentation
+tags:
+title: $:/plugins/skeeve/documentation/example
 
 \define example(title src)
 
