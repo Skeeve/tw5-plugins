@@ -1,6 +1,7 @@
 created: ${created %Y%m%d%H%M%S000}$
 modified: ${modified %Y%m%d%H%M%S000}$
 title: action-increment Plugin
+tags: [[Plugin Documentation]]
 
 The action-increment Plugin currently only contains one widgets
 
