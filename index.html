@@ -128,6 +128,14 @@ Error message and password prompt
 
 <li>$:/isEncrypted</li>
 
+<li>$:/plugins/skeeve/action-increment/icon</li>
+
+<li>$:/plugins/skeeve/action-increment/license</li>
+
+<li>$:/plugins/skeeve/action-increment/readme</li>
+
+<li>$:/plugins/skeeve/widgets/action-increment.js</li>
+
 <li>$:/plugins/tiddlywiki/pluginlibrary</li>
 
 <li>$:/SiteSubtitle</li>
@@ -143,6 +151,8 @@ Error message and password prompt
 <li>$:/themes/tiddlywiki/vanilla</li>
 
 <li>About Skeeve's Plugins Library</li>
+
+<li>plugins//.placeholder</li>
 
 <li>Skeeve's Plugins Library</li>
 
@@ -8427,6 +8437,123 @@ Error message and password prompt
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
+<div created="20180222184551000" modified="20180225094227000" title="$:/plugins/skeeve/action-increment/icon">
+<pre>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;22pt&quot; height=&quot;22pt&quot; viewBox=&quot;0 0 43.536 50.271&quot;&gt;&lt;path fill=&quot;#ccc&quot; d=&quot;M21.768 0l21.768 12.568v25.135L21.768 50.271 0 37.703V12.568z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.8 3.969h7.937v13.229h-7.938zM9.862 17.198H17.8V41.01H9.862zm15.875 0h7.938V41.01h-7.938zM1.924 25.136h7.938v7.937H1.924z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.799 25.135h7.938v7.938h-7.938zm15.875 0h7.938v7.938h-7.938z&quot;/&gt;&lt;/svg&gt;
+</pre>
+</div>
+<div created="20180223222944000" modified="20180223222944000" title="$:/plugins/skeeve/action-increment/license">
+<pre>The action-increment plugin is published under a the same [[permissive BSD 3-Clause License|https://opensource.org/licenses/BSD-3-Clause]] as [[TiddlyWiki|https://tiddlywiki.com]] stored in the shadow tiddler [[$:/core/copyright.txt]]:
+
+&lt;div style=&quot;font-size: 0.5em;line-height:1.4;&quot;&gt;
+
+{{$:/core/copyright.txt}}
+
+&lt;/div&gt;
+</pre>
+</div>
+<div agent="Agent 007" created="20180223222944000" modified="20180223224556000" title="$:/plugins/skeeve/action-increment/readme">
+<pre>! Introduction
+
+The ''action-increment'' widget is an [[action widget|https://tiddlywiki.com/#ActionWidgets]] that retrieves a value from a text reference. It will then increase the first digit-sequence found in that text and store it.
+
+! Content and Attributes
+
+The ''action-increment'' widget is invisible. Any content within it is ignored.
+
+|!Attribute |!Description |
+|$reference |Just a normal [[TextReference|https://tiddlywiki.com/#TextReference]] defining where the value to be incremented, is stored |
+
+! Examples
+
+```
+&lt;$button&gt;
+  &lt;$action-increment $reference=&quot;!!agent&quot;/&gt;
+  This will increment
+&lt;/$button&gt; &quot;{{$:/plugins/skeeve/action-increment/readme!!agent}}&quot;.
+```
+
+&lt;$button&gt;
+  &lt;$action-increment $reference=&quot;!!agent&quot;/&gt;
+  This will increment
+&lt;/$button&gt; &quot;{{$:/plugins/skeeve/action-increment/readme!!agent}}&quot;.
+</pre>
+</div>
+<div module-type="widget" title="$:/plugins/skeeve/widgets/action-increment.js" type="application/javascript">
+<pre>/*\
+title: $:/plugins/skeeve/widgets/action-increment.js
+type: application/javascript
+module-type: widget
+
+Action widget to increment a value specified by a text reference
+
+&lt;$action-increment $reference=&quot;Tiddler!!field&quot;/&gt;
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
+
+var IncrementWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+
+/*
+Inherit from the base widget class
+*/
+IncrementWidget.prototype = new Widget();
+
+/*
+Render this widget into the DOM
+*/
+IncrementWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
+	this.execute();
+};
+
+/*
+Compute the internal state of the widget
+*/
+IncrementWidget.prototype.execute = function() {
+	this.actionReference = this.getAttribute(&quot;$reference&quot;);
+};
+
+/*
+Refresh the widget by ensuring our attributes are up to date
+*/
+IncrementWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if($tw.utils.count(changedAttributes) &gt; 0) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+/*
+Invoke the action associated with this widget
+*/
+IncrementWidget.prototype.invokeAction = function(triggeringWidget,event) {
+	if(this.actionReference) {
+		var value=this.wiki.getTextReference(this.actionReference,&quot;0&quot;,this.getVariable(&quot;currentTiddler&quot;));
+		var shattered= value.split(/(\d+)/);
+		if(shattered.length&gt;2) {
+			shattered[1]= (((&quot;10&quot;+shattered[1])*1+1)+&quot;&quot;).replace(/^10?/, &quot;&quot;);
+			value= shattered.join(&quot;&quot;);
+			this.wiki.setTextReference(this.actionReference,value,this.getVariable(&quot;currentTiddler&quot;));
+		}
+	}
+	return true; // Action was invoked
+};
+
+exports[&quot;action-increment&quot;] = IncrementWidget;
+
+})();
+</pre>
+</div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="Plugin library builder" list="readme" plugin-type="plugin" title="$:/plugins/tiddlywiki/pluginlibrary" type="application/json" version="5.1.15">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -8590,6 +8717,9 @@ Error message and password prompt
 
 Copy this link to add the plugin library:  [[Skeeve's Plugins Library]]
 </pre>
+</div>
+<div title="plugins//.placeholder" type="text/plain">
+<pre></pre>
 </div>
 <div created="20180117211712000" modified="20180223143106000" tags="$:/tags/PluginLibrary" title="Skeeve's Plugins Library" url="https://skeeve.github.io/tw5-plugins/library/index.html">
 <pre>The plugin library for plugins made by Skeeve.
