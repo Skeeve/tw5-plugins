@@ -4,4 +4,4 @@ title: $:/plugins/skeeve/pick/readme
 
 A set of filters and widgets to pick out texts by using regular expressions.
 
-For more information see the {{online documentation#pick Plugin||$:/Documentation}}.
+For more information, please see the {{online documentation#pick Plugin||$:/plugins/skeeve/documentation/documentation}}.

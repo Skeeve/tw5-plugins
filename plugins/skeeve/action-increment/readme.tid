@@ -1,10 +1,9 @@
 created: ${created %Y%m%d%H%M%S000}$
 modified: ${modified %Y%m%d%H%M%S000}$
 title: $:/plugins/skeeve/action-increment/readme
-agent: Agent 007
 
 ! Introduction
 
 The ''action-increment'' widget is an [[action widget|https://tiddlywiki.com/#ActionWidgets]] that retrieves a value from a text reference. It will then increase the first digit-sequence found in that text and store it.
 
-For more information, please see the {{online documentation#action-increment Plugin||$:/Documentation}}.
+For more information, please see the {{online documentation#action-increment Plugin||$:/plugins/skeeve/documentation/documentation}}.

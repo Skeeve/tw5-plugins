@@ -1,0 +1,21 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+title: $:/plugins/skeeve/documentation
+
+\define documentation(text tiddler) <a href="http://skeeve.github.io/tw5-plugins#$tiddler$">$text$</a>
+
+<$list filter="[all[current]regexp[#]]">
+
+<$splitgroups $separator="#" text="$1" link="$2">
+
+<$macrocall $name="documentation" text=<<text>> tiddler=<<link>>/>
+
+</$splitgroups>
+
+</$list>
+
+<$list filter="[all[current]!regexp[#]]">
+
+<$macrocall $name="documentation" text=<<currentTiddler>> tiddler=<<currentTiddler>>/>
+
+</$list>

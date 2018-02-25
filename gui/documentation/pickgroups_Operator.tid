@@ -1,0 +1,19 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+tags: [[Filter Operators]] [[Field Operators]] [[Negatable Operators]] [[Field Operator]]
+title: pickgroups Operator
+type: text/vnd.tiddlywiki
+
+|!purpose |pick out portions of text matched by regular expressions |
+|!input |a selection of titles |
+|!suffix |F = the name of a field |
+|!parameter |X = a regular expression |
+|!output |for each matched content, the captured groups |
+
+If no capturing groups are defined in the regular expression or if the operator is negated (`!`) `pickgroups` will work exactly like the [[regexp Operator|https://tiddlywiki.com/#regexp%20Operator]].
+
+For more background information about regular expressions, please see the [[regexp Operator|https://tiddlywiki.com/#regexp%20Operator]]'s description in [[TiddlyWiki|https://tiddlywiki.com]]
+
+`pickgroups` is very similar to  the [[pick Operator]]. The difference lies in what happens for multiple capturing groups. When there are multiple capturing groups in a regular expression, one can usually reference them by `$n` where n is the number of the group (starting with 1). While `pick` simply pushes each capturing group to the list of results, `pickgroups` prepares multiple groups in such a way, that they are just one result which can be used by the [[SplitgroupsWidget]].
+
+[[See the example|pick example]]

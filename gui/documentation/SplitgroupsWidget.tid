@@ -1,0 +1,19 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+tags: 
+title: SplitgroupsWidget
+
+! Introduction
+
+The splitgroups widget allows multiple variables to be set in one operation, pretty much like the [[VarsWidget|https://tiddlywiki.com/#VarsWidget]].
+
+The main difference is, that it expects `currentTiddler` to be a result of the [[pickgroups Operator]]. Each of the captured groups can be reference by `$n` where n is the number of the capturing group (starting with 1).
+ Content and Attributes
+
+The content of the `<$vars>` widget is the scope for the value assigned to the variable.
+
+|!Attribute |!Description |
+|$separator |''(optional)''A  text at which to split the ''currentTiddler'' into groups. Not required for [[pickgroups|pickgroups Operator]] but can be used for stuff like splitting dates at the ''/'' or ''-''.|
+|//{attributes not starting with $}// |Each attribute name specifies a variable name. The attribute value is assigned to the variable. Eaxch`$n` in the valueis replaced with the content of captured group n. `$$`will be replaced by a single `$`.|
+
+[[See the example|pick example]]

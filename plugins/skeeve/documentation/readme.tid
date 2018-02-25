@@ -1,0 +1,7 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+title: $:/plugins/skeeve/documentation/readme
+
+The ''documentation'' plugin contains tiddlers used by my other plugins.
+
+Do not use the documentation tiddlers in production code as I might change them without notice.

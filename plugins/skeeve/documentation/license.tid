@@ -1,0 +1,11 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+title: $:/plugins/skeeve/documentation/license
+
+The documentation plugin is published under the same [[permissive BSD 3-Clause License|https://opensource.org/licenses/BSD-3-Clause]] as [[TiddlyWiki|https://tiddlywiki.com]] stored in the shadow tiddler [[$:/core/copyright.txt]]:
+
+<div style="font-size: 0.5em;line-height:1.4;">
+
+{{$:/core/copyright.txt}}
+
+</div>

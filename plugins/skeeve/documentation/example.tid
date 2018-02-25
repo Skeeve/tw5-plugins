@@ -1,0 +1,20 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+tags: 
+title: $:/plugins/skeeve/documentation
+
+\define example(title src)
+
+!Example for $title$
+```
+$src$
+```
+
+\end
+
+<$macrocall $name="example" title={{!!title}} src={{!!text}}/>
+
+!! Output of example
+<<<
+{{!!text}}
+<<<

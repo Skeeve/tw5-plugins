@@ -1,0 +1,5 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+title: $:/plugins/skeeve/action-increment/icon
+
+<svg xmlns="http://www.w3.org/2000/svg" width="22pt" height="22pt" viewBox="0 0 43.536 50.271"><path fill="#ccc" d="M21.768 0l21.768 12.568v25.135L21.768 50.271 0 37.703V12.568z"/><path fill="#fff" d="M17.8 3.969h7.937v13.229h-7.938zM9.862 17.198H17.8V41.01H9.862zm15.875 0h7.938V41.01h-7.938zM1.924 25.136h7.938v7.937H1.924z"/><path fill="#de87cd" d="M17.799 25.135h7.938v7.938h-7.938zm15.875 0h7.938v7.938h-7.938z"/></svg>
