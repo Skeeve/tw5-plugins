@@ -1,6 +1,6 @@
 {
   "title": "$:/plugins/skeeve/pick",
-  "description": "An collection of filters and widgets to pick out text by using rgular expressions",
+  "description": "pick out text by using regular expressions",
   "author": "Skeeve",
   "version": "1.0.0",
   "core-version": ">=5.1.3",
