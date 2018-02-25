@@ -126,8 +126,6 @@ Error message and password prompt
 
 <li>$:/DefaultTiddlers</li>
 
-<li>$:/documentation</li>
-
 <li>$:/isEncrypted</li>
 
 <li>$:/plugins/skeeve/action-increment/icon</li>
@@ -135,6 +133,12 @@ Error message and password prompt
 <li>$:/plugins/skeeve/action-increment/license</li>
 
 <li>$:/plugins/skeeve/action-increment/readme</li>
+
+<li>$:/plugins/skeeve/documentation</li>
+
+<li>$:/plugins/skeeve/documentation/license</li>
+
+<li>$:/plugins/skeeve/documentation/readme</li>
 
 <li>$:/plugins/skeeve/pick/icon</li>
 
@@ -172,19 +176,21 @@ Error message and password prompt
 
 <li>action-increment plugin</li>
 
-<li>Example</li>
-
 <li>pick</li>
 
 <li>pick example</li>
 
 <li>pick expression explained</li>
 
+<li>pick Operator</li>
+
 <li>pick Plugin</li>
 
 <li>pickgroups</li>
 
 <li>pickgroups example</li>
+
+<li>pickgroups Operator</li>
 
 <li>plugins//.placeholder</li>
 
@@ -197,6 +203,8 @@ Error message and password prompt
 <li>splitgroups (concatenating groups)</li>
 
 <li>splitgroups example</li>
+
+<li>SplitgroupsWidget</li>
 
 <li>Testdata</li>
 
@@ -8478,31 +8486,11 @@ Error message and password prompt
 <pre>[[About Skeeve's Plugins Library]]
 </pre>
 </div>
-<div created="20180225125733000" modified="20180225125733000" title="$:/documentation">
-<pre>\define documentation(text url tiddler) &lt;a href=&quot;$url$#$tiddler$&quot;&gt;$text$&lt;/a&gt;
-
-&lt;$list filter=&quot;[all[current]regexp[#]]&quot;&gt;
-
-&lt;$splitgroups $separator=&quot;#&quot; text=&quot;$1&quot; link=&quot;$2&quot;&gt;
-
-&lt;$macrocall $name=&quot;documentation&quot; text=&lt;&lt;text&gt;&gt; url={{Skeeve's Plugins Library!!base}} tiddler=&lt;&lt;link&gt;&gt;/&gt;
-
-&lt;/$splitgroups&gt;
-
-&lt;/$list&gt;
-
-&lt;$list filter=&quot;[all[current]!regexp[#]]&quot;&gt;
-
-&lt;$macrocall $name=&quot;documentation&quot; text=&lt;&lt;currentTiddler&gt;&gt; url={{Skeeve's Plugins Library!!base}} tiddler=&lt;&lt;currentTiddler&gt;&gt;/&gt;
-
-&lt;/$list&gt;
-</pre>
-</div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div created="20180222184551000" modified="20180225094227000" title="$:/plugins/skeeve/action-increment/icon">
-<pre>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;22pt&quot; height=&quot;22pt&quot; viewBox=&quot;0 0 43.536 50.271&quot;&gt;&lt;path fill=&quot;#ccc&quot; d=&quot;M21.768 0l21.768 12.568v25.135L21.768 50.271 0 37.703V12.568z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.8 3.969h7.937v13.229h-7.938zM9.862 17.198H17.8V41.01H9.862zm15.875 0h7.938V41.01h-7.938zM1.924 25.136h7.938v7.937H1.924z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.799 25.135h7.938v7.938h-7.938zm15.875 0h7.938v7.938h-7.938z&quot;/&gt;&lt;/svg&gt;
+<div created="20180222184551000" modified="20180225140135000" title="$:/plugins/skeeve/action-increment/icon">
+<pre>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;22pt&quot; height=&quot;22pt&quot; viewBox=&quot;0 0 43.536 50.271&quot;&gt;&lt;path fill=&quot;#ccc&quot; d=&quot;M21.768 0l21.768 12.568v25.135L21.768 50.271 0 37.703V12.568z&quot;/&gt;&lt;path fill=&quot;#fff&quot; d=&quot;M17.8 3.969h7.937v13.229h-7.938zM9.862 17.198H17.8V41.01H9.862zm15.875 0h7.938V41.01h-7.938zM1.924 25.136h7.938v7.937H1.924z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.799 25.135h7.938v7.938h-7.938zm15.875 0h7.938v7.938h-7.938z&quot;/&gt;&lt;/svg&gt;
 </pre>
 </div>
 <div created="20180223222944000" modified="20180225125733000" title="$:/plugins/skeeve/action-increment/license">
@@ -8515,20 +8503,34 @@ Error message and password prompt
 &lt;/div&gt;
 </pre>
 </div>
-<div agent="Agent 007" created="20180223222944000" modified="20180225125733000" title="$:/plugins/skeeve/action-increment/readme">
+<div created="20180223222944000" modified="20180225140135000" title="$:/plugins/skeeve/action-increment/readme">
 <pre>! Introduction
 
 The ''action-increment'' widget is an [[action widget|https://tiddlywiki.com/#ActionWidgets]] that retrieves a value from a text reference. It will then increase the first digit-sequence found in that text and store it.
 
-For more information, please see the {{online documentation#action-increment Plugin||$:/Documentation}}.
+For more information, please see the {{online documentation#action-increment Plugin||$:/plugins/skeeve/documentation/documentation}}.
 </pre>
 </div>
-<div created="20180222184551000" modified="20180225125733000" title="$:/plugins/skeeve/pick/icon">
-<pre>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;22pt&quot; height=&quot;22pt&quot; viewBox=&quot;0 0 43.536 50.271&quot;&gt;&lt;path fill=&quot;#ccc&quot; d=&quot;M21.768 0l21.768 12.568v25.135L21.768 50.271 0 37.703V12.568z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.8 3.969h7.937v13.229h-7.938zM9.862 17.198H17.8V41.01H9.862zm15.875 0h7.938V41.01h-7.938zM1.924 25.136h7.938v7.937H1.924z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.799 25.135h7.938v7.938h-7.938zm15.875 0h7.938v7.938h-7.938z&quot;/&gt;&lt;/svg&gt;
+<div created="20180225125733000" modified="20180225140135000" tags="" title="$:/plugins/skeeve/documentation">
+<pre>\define example(title src)
+
+!Example for $title$
+```
+$src$
+```
+
+\end
+
+&lt;$macrocall $name=&quot;example&quot; title={{!!title}} src={{!!text}}/&gt;
+
+!! Output of example
+&lt;&lt;&lt;
+{{!!text}}
+&lt;&lt;&lt;
 </pre>
 </div>
-<div created="20180225125733000" modified="20180225125733000" title="$:/plugins/skeeve/pick/license">
-<pre>The pick plugin is published under a the same [[permissive BSD 3-Clause License|https://opensource.org/licenses/BSD-3-Clause]] as [[TiddlyWiki|https://tiddlywiki.com]] stored in the shadow tiddler [[$:/core/copyright.txt]]:
+<div created="20180225140135000" modified="20180225140135000" title="$:/plugins/skeeve/documentation/license">
+<pre>The documentation plugin is published under the same [[permissive BSD 3-Clause License|https://opensource.org/licenses/BSD-3-Clause]] as [[TiddlyWiki|https://tiddlywiki.com]] stored in the shadow tiddler [[$:/core/copyright.txt]]:
 
 &lt;div style=&quot;font-size: 0.5em;line-height:1.4;&quot;&gt;
 
@@ -8537,10 +8539,30 @@ For more information, please see the {{online documentation#action-increment Plu
 &lt;/div&gt;
 </pre>
 </div>
-<div created="20180225125733000" modified="20180225125733000" title="$:/plugins/skeeve/pick/readme">
+<div created="20180225140135000" modified="20180225140135000" title="$:/plugins/skeeve/documentation/readme">
+<pre>The ''documentation'' plugin contains tiddlers used by my other plugins.
+
+Do not use the documentation tiddlers in production code as I might change them without notice.
+</pre>
+</div>
+<div created="20180222184551000" modified="20180225125733000" title="$:/plugins/skeeve/pick/icon">
+<pre>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;22pt&quot; height=&quot;22pt&quot; viewBox=&quot;0 0 43.536 50.271&quot;&gt;&lt;path fill=&quot;#ccc&quot; d=&quot;M21.768 0l21.768 12.568v25.135L21.768 50.271 0 37.703V12.568z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.8 3.969h7.937v13.229h-7.938zM9.862 17.198H17.8V41.01H9.862zm15.875 0h7.938V41.01h-7.938zM1.924 25.136h7.938v7.937H1.924z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.799 25.135h7.938v7.938h-7.938zm15.875 0h7.938v7.938h-7.938z&quot;/&gt;&lt;/svg&gt;
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225140135000" title="$:/plugins/skeeve/pick/license">
+<pre>The pick plugin is published under the same [[permissive BSD 3-Clause License|https://opensource.org/licenses/BSD-3-Clause]] as [[TiddlyWiki|https://tiddlywiki.com]] stored in the shadow tiddler [[$:/core/copyright.txt]]:
+
+&lt;div style=&quot;font-size: 0.5em;line-height:1.4;&quot;&gt;
+
+{{$:/core/copyright.txt}}
+
+&lt;/div&gt;
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225140135000" title="$:/plugins/skeeve/pick/readme">
 <pre>A set of filters and widgets to pick out texts by using regular expressions.
 
-For more information see the {{online documentation#pick Plugin||$:/Documentation}}.
+For more information, please see the {{online documentation#pick Plugin||$:/plugins/skeeve/documentation/documentation}}.
 </pre>
 </div>
 <div module-type="widget" title="$:/plugins/skeeve/pick/splitgroups.js" type="application/javascript">
@@ -8946,24 +8968,6 @@ The ''action-increment'' widget is invisible. Any content within it is ignored.
 [[action-increment Examples]]
 </pre>
 </div>
-<div created="20180225112850188" modified="20180225115014321" tags="" title="Example">
-<pre>\define example(title src)
-
-!Example for $title$
-```
-$src$
-```
-
-\end
-
-&lt;$macrocall $name=&quot;example&quot; title={{!!title}} src={{!!text}}/&gt;
-
-!! Output of example
-&lt;&lt;&lt;
-{{!!text}}
-&lt;&lt;&lt;
-</pre>
-</div>
 <div created="20180225125733000" modified="20180225125733000" tags="" title="pick">
 <pre>&lt;ol&gt;
 &lt;$list filter=&quot;[[Testdata]] +[pick:text[(?gm)^(\d+)x0*(\d+)-(.*)\.mp4$]]&quot;&gt;
@@ -8972,10 +8976,10 @@ $src$
 &lt;/ol&gt;
 </pre>
 </div>
-<div created="20180225125733000" modified="20180225125733000" tags="" title="pick example">
+<div created="20180225125733000" modified="20180225140135000" tags="" title="pick example">
 <pre>The example uses this [[Testdata]].
 
-{{pick||$:/Example}}
+{{pick||$:/plugins/skeeve/documentation/example}}
 
 Some information about the [[regular expression|pick expression explained]].
 </pre>
@@ -9005,6 +9009,20 @@ This is what we express in the regular expression, and we want to pick out the 2
 |!$ |This matches at the end of each line. |
 </pre>
 </div>
+<div created="20180225140135000" modified="20180225140135000" tags="[[Filter Operators]] [[Field Operators]] [[Negatable Operators]] [[Field Operator]]" title="pick Operator" type="text/vnd.tiddlywiki">
+<pre>|!purpose |pick out portions of text matched by regular expressions |
+|!input |a selection of titles |
+|!suffix |F = the name of a field |
+|!parameter |X = a regular expression |
+|!output |for each matched content, the captured groups |
+
+If no capturing groups are defined in the regular expression or if the operator is negated (`!`) `pick` will work exactly like the [[regexp Operator|https://tiddlywiki.com/#regexp%20Operator]].
+
+For more background information about regular expressions, please see the [[regexp Operator|https://tiddlywiki.com/#regexp%20Operator]]'s description in [[TiddlyWiki|https://tiddlywiki.com]]
+
+[[See the example|pick example]]
+</pre>
+</div>
 <div created="20180225125733000" modified="20180225125733000" tags="" title="pick Plugin">
 <pre>The pick plugin is a set of two filters and one widget to help extracting data from your TiddlyWiki file.
 
@@ -9028,12 +9046,28 @@ This is what we express in the regular expression, and we want to pick out the 2
 &lt;/ol&gt;
 </pre>
 </div>
-<div created="20180225125733000" modified="20180225125733000" tags="" title="pickgroups example">
+<div created="20180225125733000" modified="20180225140135000" tags="" title="pickgroups example">
 <pre>The example uses this [[Testdata]].
 
-{{pickgroups||$:/Example}}
+{{pickgroups||$:/plugins/skeeve/documentation/example}}
 
 Some information about the [[regular expression|pick expression explained]].
+</pre>
+</div>
+<div created="20180225140135000" modified="20180225140135000" tags="[[Filter Operators]] [[Field Operators]] [[Negatable Operators]] [[Field Operator]]" title="pickgroups Operator" type="text/vnd.tiddlywiki">
+<pre>|!purpose |pick out portions of text matched by regular expressions |
+|!input |a selection of titles |
+|!suffix |F = the name of a field |
+|!parameter |X = a regular expression |
+|!output |for each matched content, the captured groups |
+
+If no capturing groups are defined in the regular expression or if the operator is negated (`!`) `pickgroups` will work exactly like the [[regexp Operator|https://tiddlywiki.com/#regexp%20Operator]].
+
+For more background information about regular expressions, please see the [[regexp Operator|https://tiddlywiki.com/#regexp%20Operator]]'s description in [[TiddlyWiki|https://tiddlywiki.com]]
+
+`pickgroups` is very similar to  the [[pick Operator]]. The difference lies in what happens for multiple capturing groups. When there are multiple capturing groups in a regular expression, one can usually reference them by `$n` where n is the number of the group (starting with 1). While `pick` simply pushes each capturing group to the list of results, `pickgroups` prepares multiple groups in such a way, that they are just one result which can be used by the [[SplitgroupsWidget]].
+
+[[See the example|pick example]]
 </pre>
 </div>
 <div title="plugins//.placeholder" type="text/plain">
@@ -9159,12 +9193,29 @@ created in &lt;&lt;year&gt;&gt; on day &lt;&lt;day&gt;&gt; of month &lt;&lt;mont
 &lt;/$list&gt;
 </pre>
 </div>
-<div created="20180225125733000" modified="20180225125733000" tags="" title="splitgroups example">
-<pre>{{splitgroups||$:/Example}}
+<div created="20180225125733000" modified="20180225140135000" tags="" title="splitgroups example">
+<pre>{{splitgroups||$:/plugins/skeeve/documentation/example}}
 
 If you'r just interested in the output the example could also be done like this:
 
-{{splitgroups (concatenating groups)||$:/Example}}
+{{splitgroups (concatenating groups)||$:/plugins/skeeve/documentation/example}}
+</pre>
+</div>
+<div created="20180225140135000" modified="20180225140135000" tags="" title="SplitgroupsWidget">
+<pre>! Introduction
+
+The splitgroups widget allows multiple variables to be set in one operation, pretty much like the [[VarsWidget|https://tiddlywiki.com/#VarsWidget]].
+
+The main difference is, that it expects `currentTiddler` to be a result of the [[pickgroups Operator]]. Each of the captured groups can be reference by `$n` where n is the number of the capturing group (starting with 1).
+ Content and Attributes
+
+The content of the `&lt;$vars&gt;` widget is the scope for the value assigned to the variable.
+
+|!Attribute |!Description |
+|$separator |''(optional)''A  text at which to split the ''currentTiddler'' into groups. Not required for [[pickgroups|pickgroups Operator]] but can be used for stuff like splitting dates at the ''/'' or ''-''.|
+|//{attributes not starting with $}// |Each attribute name specifies a variable name. The attribute value is assigned to the variable. Eaxch`$n` in the valueis replaced with the content of captured group n. `$$`will be replaced by a single `$`.|
+
+[[See the example|pick example]]
 </pre>
 </div>
 <div created="20180225125733000" modified="20180225125733000" tags="" title="Testdata" type="text/plain">
