@@ -5,6 +5,6 @@ title: pick example
 
 The example uses this [[Testdata]].
 
-{{pick||$:/plugins/skeeve/documentation/$:/plugins/skeeve/documentation/example}}
+{{pick||$:/plugins/skeeve/documentation/example}}
 
 Some information about the [[regular expression|pick expression explained]].

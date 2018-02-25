@@ -5,3 +5,11 @@ title: About Skeeve's Plugins Library
 {{Skeeve's Plugins Library}}
 
 Copy this link to add the plugin library:  [[Skeeve's Plugins Library]]
+
+You also can find all the documentation about the plugins here:
+
+<$list filter="[tag[Plugin Documentation]]">
+
+<$link><<currentTiddler>></$link>
+
+</$list>
