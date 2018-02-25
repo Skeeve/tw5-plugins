@@ -1,0 +1,11 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+tags:
+title: splitgroups
+type:
+
+<$list filter="[[${modified %Y-%m-%d}$]]">
+<$splitgroups $separator="-" year="$1" month="$2" day="$3">
+created in <<year>> on day <<day>> of month <<month>>
+</$splitgroups>
+</$list>

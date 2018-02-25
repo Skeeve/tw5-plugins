@@ -7,23 +7,4 @@ agent: Agent 007
 
 The ''action-increment'' widget is an [[action widget|https://tiddlywiki.com/#ActionWidgets]] that retrieves a value from a text reference. It will then increase the first digit-sequence found in that text and store it.
 
-! Content and Attributes
-
-The ''action-increment'' widget is invisible. Any content within it is ignored.
-
-|!Attribute |!Description |
-|$reference |Just a normal [[TextReference|https://tiddlywiki.com/#TextReference]] defining where the value to be incremented, is stored |
-
-! Examples
-
-```
-<$button>
-  <$action-increment $reference="!!agent"/>
-  This will increment
-</$button> "{{$:/plugins/skeeve/action-increment/readme!!agent}}".
-```
-
-<$button>
-  <$action-increment $reference="!!agent"/>
-  This will increment
-</$button> "{{$:/plugins/skeeve/action-increment/readme!!agent}}".
+For more information, please see the {{online documentation#action-increment Plugin||$:/Documentation}}.

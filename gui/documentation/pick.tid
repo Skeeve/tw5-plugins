@@ -1,0 +1,10 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+tags: 
+title: pick
+
+<ol>
+<$list filter="[[Testdata]] +[pick:text[(?gm)^(\d+)x0*(\d+)-(.*)\.mp4$]]">
+<li><$view field="title"/></li>
+</$list>
+</ol>

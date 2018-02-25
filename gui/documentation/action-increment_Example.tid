@@ -1,0 +1,16 @@
+agent: Agent 007
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+somenumbers: year ${modified %Y}$ month ${modified %-m}$ day ${modified %-d}$
+tags:
+title: action-increment Example
+
+The examples use 2 fields stored in this tiddler:
+
+|Field|Value|h
+|agent |{{!!agent}} |
+|somenumbers |{{!!somenumbers}} |
+
+{{action-increment||Example}}
+
+{{action-increment (just first number)||Example}}

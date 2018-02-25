@@ -1,0 +1,10 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+tags: 
+title: pickgroups example
+
+The example uses this [[Testdata]].
+
+{{pickgroups||$:/Example}}
+
+Some information about the [[regular expression|pick expression explained]].

@@ -1,0 +1,9 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+tags: 
+title: action-increment
+
+<$button>
+  <$action-increment $reference="action-increment Example !!agent"/>
+  This will increment
+</$button> "{{action-increment Example!!agent}}".

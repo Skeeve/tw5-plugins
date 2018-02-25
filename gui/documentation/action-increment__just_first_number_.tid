@@ -1,0 +1,9 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+tags: 
+title: action-increment (just first number)
+
+<$button>
+  <$action-increment $reference="action-increment Example !!somenumbers"/>
+  This will increment
+</$button> "{{action-increment Example!!somenumbers}}".

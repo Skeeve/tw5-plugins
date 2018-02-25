@@ -3,6 +3,7 @@ modified: ${modified %Y%m%d%H%M%S000}$
 tags: $:/tags/PluginLibrary
 title: Skeeve's Plugins Library
 url: https://skeeve.github.io/tw5-plugins/library/index.html
+base: https://skeeve.github.io/tw5-plugins
 
 The plugin library for plugins made by Skeeve.
 

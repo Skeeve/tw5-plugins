@@ -1,0 +1,27 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+tags: 
+title: pick expression explained
+
+The example for [[pick|pick example]] and [[pickgroups|pickgroups example]] use the below regular expression, applied to some [[Testdata]].
+
+```
+(?gm)^(\d+)x0*(\d+)-(.*)\.mp4$
+```
+
+While this is not a tutorial for regular exprissions, it might be useful to explain this expression quickly. As you can see in the example, every line of the example data consistst of a number, followed by ''x'' followed by another number, which might have leading zeros. After that, we have a minus and the name of a file with the extension ''mp4''.
+
+This is what we express in the regular expression, and we want to pick out the 2 numbers and the filename:
+
+|Expression|Explanation|h
+|!(?gm) |These flags tell the expression to match ''g''lobally. Otherwise it would stop after the first match is found.<br/>The ''m''ultiline flag  tells the expression to match `^` at the beginning and `$` at the end of each line of text. |
+|!^ |Here the expression starts and it wants to match at the start of a line. |
+|!(\d+) |This is the first capturing group (`$1`), denoted by the surrounding brackets ''(…)'' and it matches any sequence of ''d''igits. So in the example data the "4" at the beginning of each line. |
+|!x |Just matches a plain "x". |
+|!0* |This matches any sequence of zeros, even if there are none. |
+|!(\d+) |Again a capturing group (`$2`) for ''d''igits. Due to the ''0*'' before, the first digit never will be a zero. |
+|!- |Matches a plain ''-''. |
+|!(.*) |The third capturing group (`$3`). The dot (''.'') matches any character (except newline) and the ''*'' again means any (even an empty) sequence. |
+|!\. |This matches a literal dot (''.''). |
+|!mp4 |This matches the text ''mp4''|
+|!$ |This matches at the end of each line. |

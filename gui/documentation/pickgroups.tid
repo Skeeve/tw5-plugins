@@ -1,0 +1,12 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+tags: 
+title: pickgroups
+
+<ol>
+<$list filter="[[Testdata]] +[pickgroups:text[(?gm)^(\d+)x0*(\d+)-(.*)\.mp4$]]">
+<$splitgroups season="S:$1" episode="E:$2" name="$3">
+<li><<season>> <<episode>> <<name>></li>
+</$splitgroups>
+</$list>
+</ol>

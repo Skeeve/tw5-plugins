@@ -1,0 +1,10 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+tags: 
+title: pick example
+
+The example uses this [[Testdata]].
+
+{{pick||$:/Example}}
+
+Some information about the [[regular expression|pick expression explained]].

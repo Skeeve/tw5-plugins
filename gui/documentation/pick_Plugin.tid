@@ -1,0 +1,15 @@
+created: ${created %Y%m%d%H%M%S000}$
+modified: ${modified %Y%m%d%H%M%S000}$
+tags: 
+title: pick Plugin
+
+The pick plugin is a set of two filters and one widget to help extracting data from your TiddlyWiki file.
+
+! Filter Operators
+
+# [[pick Operator]]
+# [[pickgroups Operator]]
+
+! Widget
+
+# SplitgroupsWidget
