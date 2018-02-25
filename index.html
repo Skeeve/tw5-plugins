@@ -8486,7 +8486,7 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20180221142443000" modified="20180223143106000" title="$:/DefaultTiddlers">
+<div created="20180221142733000" modified="20180223143106000" title="$:/DefaultTiddlers">
 <pre>[[About Skeeve's Plugins Library]]
 </pre>
 </div>
@@ -8680,9 +8680,6 @@ Filter operator for regexp matching and picking out capturing groups
 /*global $tw: false */
 &quot;use strict&quot;;
 
-/*
-Export our filter function
-*/
 var regexper = function(source,operator,options, grouping) {
 	var results = [],
 		fieldname = (operator.suffix || &quot;title&quot;).toLowerCase(),
@@ -8745,18 +8742,21 @@ var regexper = function(source,operator,options, grouping) {
 	}
 	return results;
 };
+/*
+Export our filter function
+*/
 exports.pick = function(source,operator,options) {
-	regexper(source,operator,options,function(m, results){
+	return regexper(source,operator,options,function(m, r){
 		// push each group as a result
 		for (var i=1; i&lt;m.length;++i) {
-			results.push(m[i]);
+			r.push(m[i]);
 		}
 	});
 };
 exports.pickgroups = function(source,operator,options) {
-	regexper(source,operator,options,function(m, results){
+	return regexper(source,operator,options,function(m, r){
 		// Join all capturing groups with a NUL character
-		results.push(m.slice(1).join(&quot;\0&quot;));
+		r.push(m.slice(1).join(&quot;\0&quot;));
 	});
 };
 
@@ -9213,7 +9213,7 @@ For more background information about regular expressions, please see the [[rege
 <div title="plugins//.placeholder" type="text/plain">
 <pre></pre>
 </div>
-<div base="https://skeeve.github.io/tw5-plugins" created="20180221142443000" modified="20180225125733000" tags="$:/tags/PluginLibrary" title="Skeeve's Plugins Library" url="https://skeeve.github.io/tw5-plugins/library/index.html">
+<div base="https://skeeve.github.io/tw5-plugins" created="20180221142733000" modified="20180225125733000" tags="$:/tags/PluginLibrary" title="Skeeve's Plugins Library" url="https://skeeve.github.io/tw5-plugins/library/index.html">
 <pre>The plugin library for plugins made by Skeeve.
 
 This library might contains experimental plugins. Be aware that I update these plugins on occasion.
