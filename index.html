@@ -134,7 +134,9 @@ Error message and password prompt
 
 <li>$:/plugins/skeeve/action-increment/readme</li>
 
-<li>$:/plugins/skeeve/documentation</li>
+<li>$:/plugins/skeeve/documentation/documentation</li>
+
+<li>$:/plugins/skeeve/documentation/example</li>
 
 <li>$:/plugins/skeeve/documentation/license</li>
 
@@ -174,7 +176,7 @@ Error message and password prompt
 
 <li>action-increment Plugin</li>
 
-<li>action-increment plugin</li>
+<li>ActionIncrementWidget</li>
 
 <li>pick</li>
 
@@ -8511,7 +8513,27 @@ The ''action-increment'' widget is an [[action widget|https://tiddlywiki.com/#Ac
 For more information, please see the {{online documentation#action-increment Plugin||$:/plugins/skeeve/documentation/documentation}}.
 </pre>
 </div>
-<div created="20180225125733000" modified="20180225140135000" tags="" title="$:/plugins/skeeve/documentation">
+<div created="20180225140135000" modified="20180225141741000" title="$:/plugins/skeeve/documentation/documentation">
+<pre>\define documentation(text tiddler) &lt;a href=&quot;http://skeeve.github.io/tw5-plugins#$tiddler$&quot;&gt;$text$&lt;/a&gt;
+
+&lt;$list filter=&quot;[all[current]regexp[#]]&quot;&gt;
+
+&lt;$splitgroups $separator=&quot;#&quot; text=&quot;$1&quot; link=&quot;$2&quot;&gt;
+
+&lt;$macrocall $name=&quot;documentation&quot; text=&lt;&lt;text&gt;&gt; tiddler=&lt;&lt;link&gt;&gt;/&gt;
+
+&lt;/$splitgroups&gt;
+
+&lt;/$list&gt;
+
+&lt;$list filter=&quot;[all[current]!regexp[#]]&quot;&gt;
+
+&lt;$macrocall $name=&quot;documentation&quot; text=&lt;&lt;currentTiddler&gt;&gt; tiddler=&lt;&lt;currentTiddler&gt;&gt;/&gt;
+
+&lt;/$list&gt;
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225141741000" tags="" title="$:/plugins/skeeve/documentation/example">
 <pre>\define example(title src)
 
 !Example for $title$
@@ -8933,16 +8955,16 @@ Copy this link to add the plugin library:  [[Skeeve's Plugins Library]]
 &lt;/$button&gt; &quot;{{action-increment Example!!somenumbers}}&quot;.
 </pre>
 </div>
-<div agent="Agent 007" created="20180225125733000" modified="20180225125733000" somenumbers="year 2018 month 2 day 25" tags="" title="action-increment Example">
+<div agent="Agent 007" created="20180225125733000" modified="20180225141741000" somenumbers="year 2018 month 2 day 25" tags="" title="action-increment Example">
 <pre>The examples use 2 fields stored in this tiddler:
 
 |Field|Value|h
 |agent |{{!!agent}} |
 |somenumbers |{{!!somenumbers}} |
 
-{{action-increment||Example}}
+{{action-increment||$:/plugin/skeeve/documentation/example}}
 
-{{action-increment (just first number)||Example}}
+{{action-increment (just first number)||$:/plugin/skeeve/documentation/example}}
 </pre>
 </div>
 <div created="20180225125733000" modified="20180225125733000" title="action-increment Plugin">
@@ -8953,7 +8975,7 @@ Copy this link to add the plugin library:  [[Skeeve's Plugins Library]]
 # ActionIncrementWidget
 </pre>
 </div>
-<div created="20180223222944000" modified="20180225125733000" title="action-increment plugin">
+<div created="20180223222944000" modified="20180225141741000" title="ActionIncrementWidget">
 <pre>! Introduction
 
 The ''action-increment'' widget is an [[action widget|https://tiddlywiki.com/#ActionWidgets]] that retrieves a value from a text reference. It will then increase the first digit-sequence found in that text and store it.
@@ -8965,7 +8987,7 @@ The ''action-increment'' widget is invisible. Any content within it is ignored.
 |!Attribute |!Description |
 |$reference |Just a normal [[TextReference|https://tiddlywiki.com/#TextReference]] defining where the value to be incremented, is stored |
 
-[[action-increment Examples]]
+[[action-increment Example]]
 </pre>
 </div>
 <div created="20180225125733000" modified="20180225125733000" tags="" title="pick">
@@ -8976,10 +8998,10 @@ The ''action-increment'' widget is invisible. Any content within it is ignored.
 &lt;/ol&gt;
 </pre>
 </div>
-<div created="20180225125733000" modified="20180225140135000" tags="" title="pick example">
+<div created="20180225125733000" modified="20180225141741000" tags="" title="pick example">
 <pre>The example uses this [[Testdata]].
 
-{{pick||$:/plugins/skeeve/documentation/example}}
+{{pick||$:/plugins/skeeve/documentation/$:/plugin/skeeve/documentation/example}}
 
 Some information about the [[regular expression|pick expression explained]].
 </pre>
@@ -9046,10 +9068,10 @@ For more background information about regular expressions, please see the [[rege
 &lt;/ol&gt;
 </pre>
 </div>
-<div created="20180225125733000" modified="20180225140135000" tags="" title="pickgroups example">
+<div created="20180225125733000" modified="20180225141741000" tags="" title="pickgroups example">
 <pre>The example uses this [[Testdata]].
 
-{{pickgroups||$:/plugins/skeeve/documentation/example}}
+{{pickgroups||$:/plugins/skeeve/documentation/$:/plugin/skeeve/documentation/example}}
 
 Some information about the [[regular expression|pick expression explained]].
 </pre>
@@ -9193,12 +9215,12 @@ created in &lt;&lt;year&gt;&gt; on day &lt;&lt;day&gt;&gt; of month &lt;&lt;mont
 &lt;/$list&gt;
 </pre>
 </div>
-<div created="20180225125733000" modified="20180225140135000" tags="" title="splitgroups example">
-<pre>{{splitgroups||$:/plugins/skeeve/documentation/example}}
+<div created="20180225125733000" modified="20180225141741000" tags="" title="splitgroups example">
+<pre>{{splitgroups||$:/plugins/skeeve/documentation/$:/plugin/skeeve/documentation/example}}
 
 If you'r just interested in the output the example could also be done like this:
 
-{{splitgroups (concatenating groups)||$:/plugins/skeeve/documentation/example}}
+{{splitgroups (concatenating groups)||$:/plugins/skeeve/documentation/$:/plugin/skeeve/documentation/example}}
 </pre>
 </div>
 <div created="20180225140135000" modified="20180225140135000" tags="" title="SplitgroupsWidget">
