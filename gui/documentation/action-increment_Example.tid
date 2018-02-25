@@ -11,6 +11,6 @@ The examples use 2 fields stored in this tiddler:
 |agent |{{!!agent}} |
 |somenumbers |{{!!somenumbers}} |
 
-{{action-increment||$:/plugin/skeeve/documentation/example}}
+{{action-increment||$:/plugins/skeeve/documentation/example}}
 
-{{action-increment (just first number)||$:/plugin/skeeve/documentation/example}}
+{{action-increment (just first number)||$:/plugins/skeeve/documentation/example}}

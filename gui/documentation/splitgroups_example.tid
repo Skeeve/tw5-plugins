@@ -3,8 +3,8 @@ modified: ${modified %Y%m%d%H%M%S000}$
 tags:
 title: splitgroups example
 
-{{splitgroups||$:/plugins/skeeve/documentation/$:/plugin/skeeve/documentation/example}}
+{{splitgroups||$:/plugins/skeeve/documentation/$:/plugins/skeeve/documentation/example}}
 
 If you'r just interested in the output the example could also be done like this:
 
-{{splitgroups (concatenating groups)||$:/plugins/skeeve/documentation/$:/plugin/skeeve/documentation/example}}
+{{splitgroups (concatenating groups)||$:/plugins/skeeve/documentation/$:/plugins/skeeve/documentation/example}}
