@@ -128,6 +128,8 @@ Error message and password prompt
 
 <li>$:/isEncrypted</li>
 
+<li>$:/plugins/skeeve/action-increment/action-increment.js</li>
+
 <li>$:/plugins/skeeve/action-increment/icon</li>
 
 <li>$:/plugins/skeeve/action-increment/license</li>
@@ -148,11 +150,11 @@ Error message and password prompt
 
 <li>$:/plugins/skeeve/pick/license</li>
 
+<li>$:/plugins/skeeve/pick/pick.js</li>
+
 <li>$:/plugins/skeeve/pick/readme</li>
 
 <li>$:/plugins/skeeve/pick/splitgroups.js</li>
-
-<li>$:/plugins/skeeve/widgets/action-increment.js</li>
 
 <li>$:/plugins/tiddlywiki/pluginlibrary</li>
 
@@ -197,8 +199,6 @@ Error message and password prompt
 <li>pickgroups Operator</li>
 
 <li>plugins//.placeholder</li>
-
-<li>plugins//skeeve/pick/pick.js</li>
 
 <li>Skeeve's Plugins Library</li>
 
@@ -8493,6 +8493,82 @@ Error message and password prompt
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
+<div module-type="widget" title="$:/plugins/skeeve/action-increment/action-increment.js" type="application/javascript">
+<pre>/*\
+title: $:/plugins/skeeve/action-increment/action-increment.js
+type: application/javascript
+module-type: widget
+
+Action widget to increment a value specified by a text reference
+
+&lt;$action-increment $reference=&quot;Tiddler!!field&quot;/&gt;
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
+
+var IncrementWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+
+/*
+Inherit from the base widget class
+*/
+IncrementWidget.prototype = new Widget();
+
+/*
+Render this widget into the DOM
+*/
+IncrementWidget.prototype.render = function(parent,nextSibling) {
+	this.computeAttributes();
+	this.execute();
+};
+
+/*
+Compute the internal state of the widget
+*/
+IncrementWidget.prototype.execute = function() {
+	this.actionReference = this.getAttribute(&quot;$reference&quot;);
+};
+
+/*
+Refresh the widget by ensuring our attributes are up to date
+*/
+IncrementWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	if($tw.utils.count(changedAttributes) &gt; 0) {
+		this.refreshSelf();
+		return true;
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+/*
+Invoke the action associated with this widget
+*/
+IncrementWidget.prototype.invokeAction = function(triggeringWidget,event) {
+	if(this.actionReference) {
+		var value=this.wiki.getTextReference(this.actionReference,&quot;0&quot;,this.getVariable(&quot;currentTiddler&quot;));
+		var shattered= value.split(/(\d+)/);
+		if(shattered.length&gt;2) {
+			shattered[1]= (((&quot;10&quot;+shattered[1])*1+1)+&quot;&quot;).replace(/^10?/, &quot;&quot;);
+			value= shattered.join(&quot;&quot;);
+			this.wiki.setTextReference(this.actionReference,value,this.getVariable(&quot;currentTiddler&quot;));
+		}
+	}
+	return true; // Action was invoked
+};
+
+exports[&quot;action-increment&quot;] = IncrementWidget;
+
+})();
+</pre>
+</div>
 <div created="20180222184551000" modified="20180225094227000" title="$:/plugins/skeeve/action-increment/icon">
 <pre>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;22pt&quot; height=&quot;22pt&quot; viewBox=&quot;0 0 43.536 50.271&quot;&gt;&lt;path fill=&quot;#ccc&quot; d=&quot;M21.768 0l21.768 12.568v25.135L21.768 50.271 0 37.703V12.568z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.8 3.969h7.937v13.229h-7.938zM9.862 17.198H17.8V41.01H9.862zm15.875 0h7.938V41.01h-7.938zM1.924 25.136h7.938v7.937H1.924z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.799 25.135h7.938v7.938h-7.938zm15.875 0h7.938v7.938h-7.938z&quot;/&gt;&lt;/svg&gt;
 </pre>
@@ -8587,6 +8663,104 @@ Do not use the documentation tiddlers in production code as I might change them 
 {{$:/core/copyright.txt}}
 
 &lt;/div&gt;
+</pre>
+</div>
+<div module-type="filteroperator" title="$:/plugins/skeeve/pick/pick.js" type="application/javascript">
+<pre>/*\
+title: $:/plugins/skeeve/pick/pick.js
+type: application/javascript
+module-type: filteroperator
+
+Filter operator for regexp matching and picking out capturing groups
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+/*
+Export our filter function
+*/
+regexper = function(source,operator,options, grouping) {
+	var results = [],
+		fieldname = (operator.suffix || &quot;title&quot;).toLowerCase(),
+		regexpString, regexp, flags = &quot;&quot;, match,
+		getFieldString = function(tiddler,title) {
+			if(tiddler) {
+				return tiddler.getFieldString(fieldname);
+			} else if(fieldname === &quot;title&quot;) {
+				return title;
+			} else {
+				return null;
+			}
+		};
+	// Process flags and construct regexp
+	regexpString = operator.operand;
+	match = /^\(\?([gim]+)\)/.exec(regexpString);
+	if(match) {
+		flags = match[1];
+		regexpString = regexpString.substr(match[0].length);
+	} else {
+		match = /\(\?([gim]+)\)$/.exec(regexpString);
+		if(match) {
+			flags = match[1];
+			regexpString = regexpString.substr(0,regexpString.length - match[0].length);
+		}
+	}
+	var global= flags.indexOf('g') &gt; -1;
+	try {
+		regexp = new RegExp(regexpString,flags);
+	} catch(e) {
+		return [&quot;&quot; + e];
+	}
+	// Process the incoming tiddlers
+	if(operator.prefix === &quot;!&quot;) {
+		// If negated, we handle it like the regexp filter
+		source(function(tiddler,title) {
+			var text = getFieldString(tiddler,title);
+			if(text !== null) {
+				if(!regexp.exec(text)) {
+					results.push(title);
+				}
+			}
+		});
+	} else {
+		source(function(tiddler,title) {
+			var text = getFieldString(tiddler,title);
+			if(text !== null) {
+				var m;
+				while (m = regexp.exec(text)) {
+					// Just 1 match means: We had no capturing group
+					// act like regexp filter
+					if (m.length == 1) {
+						results.push(title);
+						break;
+					}
+					grouping(m, results);
+				}
+			}
+		});
+	}
+	return results;
+};
+exports.pick = function(source,operator,options) {
+	regexper(source,operator,options,function(m, results){
+		// push each group as a result
+		for (var i=1; i&lt;m.length;++i) {
+			results.push(m[i]);
+		}
+	});
+};
+exports.pickgroups = function(source,operator,options) {
+	regexper(source,operator,options,function(m, results){
+		// Join all capturing groups with a NUL character
+		results.push(m.slice(1).join(&quot;\0&quot;));
+	});
+};
+
+)();
 </pre>
 </div>
 <div created="20180225125733000" modified="20180225152532000" title="$:/plugins/skeeve/pick/readme">
@@ -8707,82 +8881,6 @@ SplitgroupsWidget.prototype.refresh = function(changedTiddlers) {
 };
 
 exports.splitgroups = SplitgroupsWidget;
-
-})();
-</pre>
-</div>
-<div module-type="widget" title="$:/plugins/skeeve/widgets/action-increment.js" type="application/javascript">
-<pre>/*\
-title: $:/plugins/skeeve/widgets/action-increment.js
-type: application/javascript
-module-type: widget
-
-Action widget to increment a value specified by a text reference
-
-&lt;$action-increment $reference=&quot;Tiddler!!field&quot;/&gt;
-
-\*/
-(function(){
-
-/*jslint node: true, browser: true */
-/*global $tw: false */
-&quot;use strict&quot;;
-
-var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
-
-var IncrementWidget = function(parseTreeNode,options) {
-	this.initialise(parseTreeNode,options);
-};
-
-/*
-Inherit from the base widget class
-*/
-IncrementWidget.prototype = new Widget();
-
-/*
-Render this widget into the DOM
-*/
-IncrementWidget.prototype.render = function(parent,nextSibling) {
-	this.computeAttributes();
-	this.execute();
-};
-
-/*
-Compute the internal state of the widget
-*/
-IncrementWidget.prototype.execute = function() {
-	this.actionReference = this.getAttribute(&quot;$reference&quot;);
-};
-
-/*
-Refresh the widget by ensuring our attributes are up to date
-*/
-IncrementWidget.prototype.refresh = function(changedTiddlers) {
-	var changedAttributes = this.computeAttributes();
-	if($tw.utils.count(changedAttributes) &gt; 0) {
-		this.refreshSelf();
-		return true;
-	}
-	return this.refreshChildren(changedTiddlers);
-};
-
-/*
-Invoke the action associated with this widget
-*/
-IncrementWidget.prototype.invokeAction = function(triggeringWidget,event) {
-	if(this.actionReference) {
-		var value=this.wiki.getTextReference(this.actionReference,&quot;0&quot;,this.getVariable(&quot;currentTiddler&quot;));
-		var shattered= value.split(/(\d+)/);
-		if(shattered.length&gt;2) {
-			shattered[1]= (((&quot;10&quot;+shattered[1])*1+1)+&quot;&quot;).replace(/^10?/, &quot;&quot;);
-			value= shattered.join(&quot;&quot;);
-			this.wiki.setTextReference(this.actionReference,value,this.getVariable(&quot;currentTiddler&quot;));
-		}
-	}
-	return true; // Action was invoked
-};
-
-exports[&quot;action-increment&quot;] = IncrementWidget;
 
 })();
 </pre>
@@ -9114,104 +9212,6 @@ For more background information about regular expressions, please see the [[rege
 </div>
 <div title="plugins//.placeholder" type="text/plain">
 <pre></pre>
-</div>
-<div title="plugins//skeeve/pick/pick.js">
-<pre>/*\
-title: $:/plugins/skeeve/pick/pick.js
-type: application/javascript
-module-type: filteroperator
-
-Filter operator for regexp matching and picking out capturing groups
-
-*/
-(function(){
-
-/*jslint node: true, browser: true */
-/*global $tw: false */
-&quot;use strict&quot;;
-
-/*
-Export our filter function
-*/
-regexper = function(source,operator,options, grouping) {
-	var results = [],
-		fieldname = (operator.suffix || &quot;title&quot;).toLowerCase(),
-		regexpString, regexp, flags = &quot;&quot;, match,
-		getFieldString = function(tiddler,title) {
-			if(tiddler) {
-				return tiddler.getFieldString(fieldname);
-			} else if(fieldname === &quot;title&quot;) {
-				return title;
-			} else {
-				return null;
-			}
-		};
-	// Process flags and construct regexp
-	regexpString = operator.operand;
-	match = /^\(\?([gim]+)\)/.exec(regexpString);
-	if(match) {
-		flags = match[1];
-		regexpString = regexpString.substr(match[0].length);
-	} else {
-		match = /\(\?([gim]+)\)$/.exec(regexpString);
-		if(match) {
-			flags = match[1];
-			regexpString = regexpString.substr(0,regexpString.length - match[0].length);
-		}
-	}
-	var global= flags.indexOf('g') &gt; -1;
-	try {
-		regexp = new RegExp(regexpString,flags);
-	} catch(e) {
-		return [&quot;&quot; + e];
-	}
-	// Process the incoming tiddlers
-	if(operator.prefix === &quot;!&quot;) {
-		// If negated, we handle it like the regexp filter
-		source(function(tiddler,title) {
-			var text = getFieldString(tiddler,title);
-			if(text !== null) {
-				if(!regexp.exec(text)) {
-					results.push(title);
-				}
-			}
-		});
-	} else {
-		source(function(tiddler,title) {
-			var text = getFieldString(tiddler,title);
-			if(text !== null) {
-				var m;
-				while (m = regexp.exec(text)) {
-					// Just 1 match means: We had no capturing group
-					// act like regexp filter
-					if (m.length == 1) {
-						results.push(title);
-						break;
-					}
-					grouping(m, results);
-				}
-			}
-		});
-	}
-	return results;
-};
-exports.pick = function(source,operator,options) {
-	regexper(source,operator,options,function(m, results){
-		// push each group as a result
-		for (var i=1; i&lt;m.length;++i) {
-			results.push(m[i]);
-		}
-	});
-};
-exports.pickgroups = function(source,operator,options) {
-	regexper(source,operator,options,function(m, results){
-		// Join all capturing groups with a NUL character
-		results.push(m.slice(1).join(&quot;\0&quot;));
-	});
-};
-
-)();
-</pre>
 </div>
 <div base="https://skeeve.github.io/tw5-plugins" created="20180117211712000" modified="20180225125733000" tags="$:/tags/PluginLibrary" title="Skeeve's Plugins Library" url="https://skeeve.github.io/tw5-plugins/library/index.html">
 <pre>The plugin library for plugins made by Skeeve.
