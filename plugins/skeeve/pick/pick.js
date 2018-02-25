@@ -12,9 +12,6 @@ Filter operator for regexp matching and picking out capturing groups
 /*global $tw: false */
 "use strict";
 
-/*
-Export our filter function
-*/
 var regexper = function(source,operator,options, grouping) {
 	var results = [],
 		fieldname = (operator.suffix || "title").toLowerCase(),
@@ -77,18 +74,21 @@ var regexper = function(source,operator,options, grouping) {
 	}
 	return results;
 };
+/*
+Export our filter function
+*/
 exports.pick = function(source,operator,options) {
-	regexper(source,operator,options,function(m, results){
+	return regexper(source,operator,options,function(m, r){
 		// push each group as a result
 		for (var i=1; i<m.length;++i) {
-			results.push(m[i]);
+			r.push(m[i]);
 		}
 	});
 };
 exports.pickgroups = function(source,operator,options) {
-	regexper(source,operator,options,function(m, results){
+	return regexper(source,operator,options,function(m, r){
 		// Join all capturing groups with a NUL character
-		results.push(m.slice(1).join("\0"));
+		r.push(m.slice(1).join("\0"));
 	});
 };
 
