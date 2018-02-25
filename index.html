@@ -126,6 +126,8 @@ Error message and password prompt
 
 <li>$:/DefaultTiddlers</li>
 
+<li>$:/documentation</li>
+
 <li>$:/isEncrypted</li>
 
 <li>$:/plugins/skeeve/action-increment/icon</li>
@@ -133,6 +135,14 @@ Error message and password prompt
 <li>$:/plugins/skeeve/action-increment/license</li>
 
 <li>$:/plugins/skeeve/action-increment/readme</li>
+
+<li>$:/plugins/skeeve/pick/icon</li>
+
+<li>$:/plugins/skeeve/pick/license</li>
+
+<li>$:/plugins/skeeve/pick/readme</li>
+
+<li>$:/plugins/skeeve/pick/splitgroups.js</li>
 
 <li>$:/plugins/skeeve/widgets/action-increment.js</li>
 
@@ -152,9 +162,43 @@ Error message and password prompt
 
 <li>About Skeeve's Plugins Library</li>
 
+<li>action-increment</li>
+
+<li>action-increment (just first number)</li>
+
+<li>action-increment Example</li>
+
+<li>action-increment Plugin</li>
+
+<li>action-increment plugin</li>
+
+<li>Example</li>
+
+<li>pick</li>
+
+<li>pick example</li>
+
+<li>pick expression explained</li>
+
+<li>pick Plugin</li>
+
+<li>pickgroups</li>
+
+<li>pickgroups example</li>
+
 <li>plugins//.placeholder</li>
 
+<li>plugins//skeeve/pick/pick.js</li>
+
 <li>Skeeve's Plugins Library</li>
+
+<li>splitgroups</li>
+
+<li>splitgroups (concatenating groups)</li>
+
+<li>splitgroups example</li>
+
+<li>Testdata</li>
 
 </ul>
 </p>
@@ -8434,6 +8478,26 @@ Error message and password prompt
 <pre>[[About Skeeve's Plugins Library]]
 </pre>
 </div>
+<div created="20180225125733000" modified="20180225125733000" title="$:/documentation">
+<pre>\define documentation(text url tiddler) &lt;a href=&quot;$url$#$tiddler$&quot;&gt;$text$&lt;/a&gt;
+
+&lt;$list filter=&quot;[all[current]regexp[#]]&quot;&gt;
+
+&lt;$splitgroups $separator=&quot;#&quot; text=&quot;$1&quot; link=&quot;$2&quot;&gt;
+
+&lt;$macrocall $name=&quot;documentation&quot; text=&lt;&lt;text&gt;&gt; url={{Skeeve's Plugins Library!!base}} tiddler=&lt;&lt;link&gt;&gt;/&gt;
+
+&lt;/$splitgroups&gt;
+
+&lt;/$list&gt;
+
+&lt;$list filter=&quot;[all[current]!regexp[#]]&quot;&gt;
+
+&lt;$macrocall $name=&quot;documentation&quot; text=&lt;&lt;currentTiddler&gt;&gt; url={{Skeeve's Plugins Library!!base}} tiddler=&lt;&lt;currentTiddler&gt;&gt;/&gt;
+
+&lt;/$list&gt;
+</pre>
+</div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
@@ -8441,8 +8505,8 @@ Error message and password prompt
 <pre>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;22pt&quot; height=&quot;22pt&quot; viewBox=&quot;0 0 43.536 50.271&quot;&gt;&lt;path fill=&quot;#ccc&quot; d=&quot;M21.768 0l21.768 12.568v25.135L21.768 50.271 0 37.703V12.568z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.8 3.969h7.937v13.229h-7.938zM9.862 17.198H17.8V41.01H9.862zm15.875 0h7.938V41.01h-7.938zM1.924 25.136h7.938v7.937H1.924z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.799 25.135h7.938v7.938h-7.938zm15.875 0h7.938v7.938h-7.938z&quot;/&gt;&lt;/svg&gt;
 </pre>
 </div>
-<div created="20180223222944000" modified="20180223222944000" title="$:/plugins/skeeve/action-increment/license">
-<pre>The action-increment plugin is published under a the same [[permissive BSD 3-Clause License|https://opensource.org/licenses/BSD-3-Clause]] as [[TiddlyWiki|https://tiddlywiki.com]] stored in the shadow tiddler [[$:/core/copyright.txt]]:
+<div created="20180223222944000" modified="20180225125733000" title="$:/plugins/skeeve/action-increment/license">
+<pre>The action-increment plugin is published under the same [[permissive BSD 3-Clause License|https://opensource.org/licenses/BSD-3-Clause]] as [[TiddlyWiki|https://tiddlywiki.com]] stored in the shadow tiddler [[$:/core/copyright.txt]]:
 
 &lt;div style=&quot;font-size: 0.5em;line-height:1.4;&quot;&gt;
 
@@ -8451,31 +8515,146 @@ Error message and password prompt
 &lt;/div&gt;
 </pre>
 </div>
-<div agent="Agent 007" created="20180223222944000" modified="20180223224556000" title="$:/plugins/skeeve/action-increment/readme">
+<div agent="Agent 007" created="20180223222944000" modified="20180225125733000" title="$:/plugins/skeeve/action-increment/readme">
 <pre>! Introduction
 
 The ''action-increment'' widget is an [[action widget|https://tiddlywiki.com/#ActionWidgets]] that retrieves a value from a text reference. It will then increase the first digit-sequence found in that text and store it.
 
-! Content and Attributes
+For more information, please see the {{online documentation#action-increment Plugin||$:/Documentation}}.
+</pre>
+</div>
+<div created="20180222184551000" modified="20180225125733000" title="$:/plugins/skeeve/pick/icon">
+<pre>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;22pt&quot; height=&quot;22pt&quot; viewBox=&quot;0 0 43.536 50.271&quot;&gt;&lt;path fill=&quot;#ccc&quot; d=&quot;M21.768 0l21.768 12.568v25.135L21.768 50.271 0 37.703V12.568z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.8 3.969h7.937v13.229h-7.938zM9.862 17.198H17.8V41.01H9.862zm15.875 0h7.938V41.01h-7.938zM1.924 25.136h7.938v7.937H1.924z&quot;/&gt;&lt;path fill=&quot;#de87cd&quot; d=&quot;M17.799 25.135h7.938v7.938h-7.938zm15.875 0h7.938v7.938h-7.938z&quot;/&gt;&lt;/svg&gt;
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" title="$:/plugins/skeeve/pick/license">
+<pre>The pick plugin is published under a the same [[permissive BSD 3-Clause License|https://opensource.org/licenses/BSD-3-Clause]] as [[TiddlyWiki|https://tiddlywiki.com]] stored in the shadow tiddler [[$:/core/copyright.txt]]:
 
-The ''action-increment'' widget is invisible. Any content within it is ignored.
+&lt;div style=&quot;font-size: 0.5em;line-height:1.4;&quot;&gt;
 
-|!Attribute |!Description |
-|$reference |Just a normal [[TextReference|https://tiddlywiki.com/#TextReference]] defining where the value to be incremented, is stored |
+{{$:/core/copyright.txt}}
 
-! Examples
+&lt;/div&gt;
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" title="$:/plugins/skeeve/pick/readme">
+<pre>A set of filters and widgets to pick out texts by using regular expressions.
+
+For more information see the {{online documentation#pick Plugin||$:/Documentation}}.
+</pre>
+</div>
+<div module-type="widget" title="$:/plugins/skeeve/pick/splitgroups.js" type="application/javascript">
+<pre>/*\
+title: $:/plugins/skeeve/pick/splitgroups.js
+type: application/javascript
+module-type: widget
+
+Set variables to group values widget
 
 ```
-&lt;$button&gt;
-  &lt;$action-increment $reference=&quot;!!agent&quot;/&gt;
-  This will increment
-&lt;/$button&gt; &quot;{{$:/plugins/skeeve/action-increment/readme!!agent}}&quot;.
+&lt;$splitgroups name1=… name2=…&gt;
+    :
+&lt;/$splitgroups&gt;
 ```
 
-&lt;$button&gt;
-  &lt;$action-increment $reference=&quot;!!agent&quot;/&gt;
-  This will increment
-&lt;/$button&gt; &quot;{{$:/plugins/skeeve/action-increment/readme!!agent}}&quot;.
+Example:
+
+```
+&lt;$splitgroups a=&quot;$1&quot; b=&quot;test $2&quot; c=&quot;$$ $3&quot; d=&quot;$1 $4&quot;&gt;
+    …anything using above variables…
+&lt;/$splitgroups&gt;
+```
+# a will get the first group
+# b will be set to &quot;test&quot; followed by the second group
+# c will be set to a literal &quot;$&quot; followed by the third group
+# d will be set to group 1 followed by group 4
+
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+var Widget = require(&quot;$:/core/modules/widgets/widget.js&quot;).widget;
+
+var SplitgroupsWidget = function(parseTreeNode,options) {
+	this.initialise(parseTreeNode,options);
+};
+
+/*
+Inherit from the base widget class
+*/
+SplitgroupsWidget.prototype = new Widget();
+
+/*
+Render this widget into the DOM
+*/
+SplitgroupsWidget.prototype.render = function(parent,nextSibling) {
+	this.parentDomNode = parent;
+	this.computeAttributes();
+	this.execute();
+	this.renderChildren(parent,nextSibling);
+};
+
+/*
+Compute the internal state of the widget
+*/
+SplitgroupsWidget.prototype.execute = function() {
+	// Get our parameters
+	// As there is nothing which will give me the attributes,
+	// I have to access the object myself…
+	var separator= this.getAttribute(&quot;$separator&quot;,&quot;\0&quot;);
+	var groups= this.getVariable(&quot;currentTiddler&quot;).split(separator);
+	for(var name in this.attributes) {
+		if( name.charAt(0) === &quot;$&quot;) {
+			continue;
+		}
+		// Split so that every odd match is a group index or a &quot;$&quot;
+		var shattered= this.attributes[name].split(/\$(\d+|\$)/g);
+		var value= shattered[0];
+		for (var i= 1; i&lt;shattered.length; ++i) {
+			// if we have an even match
+			// or the last match (an even one) ended with &quot;$&quot;
+			// or this one is &quot;$&quot;, we simply append this one
+			if ( i%2 == 0 || shattered[i-1].substr(-1) == &quot;$&quot; || shattered[i] == &quot;$&quot;) {
+				value+= shattered[i];
+				continue;
+			}
+			// get the groups index as a number
+			var j=shattered[i]-1;
+			// if it is an existing number, we append the group
+			if (  j&gt;=0 &amp;&amp; j &lt; groups.length ) {
+				value+= groups[j];
+				continue;
+			}
+			// Otherwise we append the literal $ followed by the index
+			value+= &quot;$&quot; + shattered[i];
+		}
+		this.setVariable(name, value, this.parseTreeNode.params);
+	}
+	// Construct the child widgets
+	this.makeChildWidgets();
+};
+
+/*
+Selectively refreshes the widget if needed. Returns true if the widget or any of its children needed re-rendering
+*/
+SplitgroupsWidget.prototype.refresh = function(changedTiddlers) {
+	var changedAttributes = this.computeAttributes();
+	for(var attr in changedAttributes) {
+		if(changedAttributes[attr]) {
+			this.refreshSelf();
+			return true;
+		}
+	}
+	return this.refreshChildren(changedTiddlers);
+};
+
+exports.splitgroups = SplitgroupsWidget;
+
+})();
 </pre>
 </div>
 <div module-type="widget" title="$:/plugins/skeeve/widgets/action-increment.js" type="application/javascript">
@@ -8718,13 +8897,283 @@ exports[&quot;action-increment&quot;] = IncrementWidget;
 Copy this link to add the plugin library:  [[Skeeve's Plugins Library]]
 </pre>
 </div>
+<div created="20180225125733000" modified="20180225125733000" tags="" title="action-increment">
+<pre>&lt;$button&gt;
+  &lt;$action-increment $reference=&quot;action-increment Example !!agent&quot;/&gt;
+  This will increment
+&lt;/$button&gt; &quot;{{action-increment Example!!agent}}&quot;.
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" tags="" title="action-increment (just first number)">
+<pre>&lt;$button&gt;
+  &lt;$action-increment $reference=&quot;action-increment Example !!somenumbers&quot;/&gt;
+  This will increment
+&lt;/$button&gt; &quot;{{action-increment Example!!somenumbers}}&quot;.
+</pre>
+</div>
+<div agent="Agent 007" created="20180225125733000" modified="20180225125733000" somenumbers="year 2018 month 2 day 25" tags="" title="action-increment Example">
+<pre>The examples use 2 fields stored in this tiddler:
+
+|Field|Value|h
+|agent |{{!!agent}} |
+|somenumbers |{{!!somenumbers}} |
+
+{{action-increment||Example}}
+
+{{action-increment (just first number)||Example}}
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" title="action-increment Plugin">
+<pre>The action-increment Plugin currently only contains one widgets
+
+! Widget
+
+# ActionIncrementWidget
+</pre>
+</div>
+<div created="20180223222944000" modified="20180225125733000" title="action-increment plugin">
+<pre>! Introduction
+
+The ''action-increment'' widget is an [[action widget|https://tiddlywiki.com/#ActionWidgets]] that retrieves a value from a text reference. It will then increase the first digit-sequence found in that text and store it.
+
+! Content and Attributes
+
+The ''action-increment'' widget is invisible. Any content within it is ignored.
+
+|!Attribute |!Description |
+|$reference |Just a normal [[TextReference|https://tiddlywiki.com/#TextReference]] defining where the value to be incremented, is stored |
+
+[[action-increment Examples]]
+</pre>
+</div>
+<div created="20180225112850188" modified="20180225115014321" tags="" title="Example">
+<pre>\define example(title src)
+
+!Example for $title$
+```
+$src$
+```
+
+\end
+
+&lt;$macrocall $name=&quot;example&quot; title={{!!title}} src={{!!text}}/&gt;
+
+!! Output of example
+&lt;&lt;&lt;
+{{!!text}}
+&lt;&lt;&lt;
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" tags="" title="pick">
+<pre>&lt;ol&gt;
+&lt;$list filter=&quot;[[Testdata]] +[pick:text[(?gm)^(\d+)x0*(\d+)-(.*)\.mp4$]]&quot;&gt;
+&lt;li&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/li&gt;
+&lt;/$list&gt;
+&lt;/ol&gt;
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" tags="" title="pick example">
+<pre>The example uses this [[Testdata]].
+
+{{pick||$:/Example}}
+
+Some information about the [[regular expression|pick expression explained]].
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" tags="" title="pick expression explained">
+<pre>The example for [[pick|pick example]] and [[pickgroups|pickgroups example]] use the below regular expression, applied to some [[Testdata]].
+
+```
+(?gm)^(\d+)x0*(\d+)-(.*)\.mp4$
+```
+
+While this is not a tutorial for regular exprissions, it might be useful to explain this expression quickly. As you can see in the example, every line of the example data consistst of a number, followed by ''x'' followed by another number, which might have leading zeros. After that, we have a minus and the name of a file with the extension ''mp4''.
+
+This is what we express in the regular expression, and we want to pick out the 2 numbers and the filename:
+
+|Expression|Explanation|h
+|!(?gm) |These flags tell the expression to match ''g''lobally. Otherwise it would stop after the first match is found.&lt;br/&gt;The ''m''ultiline flag  tells the expression to match `^` at the beginning and `$` at the end of each line of text. |
+|!^ |Here the expression starts and it wants to match at the start of a line. |
+|!(\d+) |This is the first capturing group (`$1`), denoted by the surrounding brackets ''(…)'' and it matches any sequence of ''d''igits. So in the example data the &quot;4&quot; at the beginning of each line. |
+|!x |Just matches a plain &quot;x&quot;. |
+|!0* |This matches any sequence of zeros, even if there are none. |
+|!(\d+) |Again a capturing group (`$2`) for ''d''igits. Due to the ''0*'' before, the first digit never will be a zero. |
+|!- |Matches a plain ''-''. |
+|!(.*) |The third capturing group (`$3`). The dot (''.'') matches any character (except newline) and the ''*'' again means any (even an empty) sequence. |
+|!\. |This matches a literal dot (''.''). |
+|!mp4 |This matches the text ''mp4''|
+|!$ |This matches at the end of each line. |
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" tags="" title="pick Plugin">
+<pre>The pick plugin is a set of two filters and one widget to help extracting data from your TiddlyWiki file.
+
+! Filter Operators
+
+# [[pick Operator]]
+# [[pickgroups Operator]]
+
+! Widget
+
+# SplitgroupsWidget
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" tags="" title="pickgroups">
+<pre>&lt;ol&gt;
+&lt;$list filter=&quot;[[Testdata]] +[pickgroups:text[(?gm)^(\d+)x0*(\d+)-(.*)\.mp4$]]&quot;&gt;
+&lt;$splitgroups season=&quot;S:$1&quot; episode=&quot;E:$2&quot; name=&quot;$3&quot;&gt;
+&lt;li&gt;&lt;&lt;season&gt;&gt; &lt;&lt;episode&gt;&gt; &lt;&lt;name&gt;&gt;&lt;/li&gt;
+&lt;/$splitgroups&gt;
+&lt;/$list&gt;
+&lt;/ol&gt;
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" tags="" title="pickgroups example">
+<pre>The example uses this [[Testdata]].
+
+{{pickgroups||$:/Example}}
+
+Some information about the [[regular expression|pick expression explained]].
+</pre>
+</div>
 <div title="plugins//.placeholder" type="text/plain">
 <pre></pre>
 </div>
-<div created="20180117211712000" modified="20180223143106000" tags="$:/tags/PluginLibrary" title="Skeeve's Plugins Library" url="https://skeeve.github.io/tw5-plugins/library/index.html">
+<div title="plugins//skeeve/pick/pick.js">
+<pre>/*\
+title: $:/plugins/skeeve/pick/pick.js
+type: application/javascript
+module-type: filteroperator
+
+Filter operator for regexp matching and picking out capturing groups
+
+*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+/*
+Export our filter function
+*/
+regexper = function(source,operator,options, grouping) {
+	var results = [],
+		fieldname = (operator.suffix || &quot;title&quot;).toLowerCase(),
+		regexpString, regexp, flags = &quot;&quot;, match,
+		getFieldString = function(tiddler,title) {
+			if(tiddler) {
+				return tiddler.getFieldString(fieldname);
+			} else if(fieldname === &quot;title&quot;) {
+				return title;
+			} else {
+				return null;
+			}
+		};
+	// Process flags and construct regexp
+	regexpString = operator.operand;
+	match = /^\(\?([gim]+)\)/.exec(regexpString);
+	if(match) {
+		flags = match[1];
+		regexpString = regexpString.substr(match[0].length);
+	} else {
+		match = /\(\?([gim]+)\)$/.exec(regexpString);
+		if(match) {
+			flags = match[1];
+			regexpString = regexpString.substr(0,regexpString.length - match[0].length);
+		}
+	}
+	var global= flags.indexOf('g') &gt; -1;
+	try {
+		regexp = new RegExp(regexpString,flags);
+	} catch(e) {
+		return [&quot;&quot; + e];
+	}
+	// Process the incoming tiddlers
+	if(operator.prefix === &quot;!&quot;) {
+		// If negated, we handle it like the regexp filter
+		source(function(tiddler,title) {
+			var text = getFieldString(tiddler,title);
+			if(text !== null) {
+				if(!regexp.exec(text)) {
+					results.push(title);
+				}
+			}
+		});
+	} else {
+		source(function(tiddler,title) {
+			var text = getFieldString(tiddler,title);
+			if(text !== null) {
+				var m;
+				while (m = regexp.exec(text)) {
+					// Just 1 match means: We had no capturing group
+					// act like regexp filter
+					if (m.length == 1) {
+						results.push(title);
+						break;
+					}
+					grouping(m, results);
+				}
+			}
+		});
+	}
+	return results;
+};
+exports.pick = function(source,operator,options) {
+	regexper(source,operator,options,function(m, results){
+		// push each group as a result
+		for (var i=1; i&lt;m.length;++i) {
+			results.push(m[i]);
+		}
+	});
+};
+exports.pickgroups = function(source,operator,options) {
+	regexper(source,operator,options,function(m, results){
+		// Join all capturing groups with a NUL character
+		results.push(m.slice(1).join(&quot;\0&quot;));
+	});
+};
+
+)();
+</pre>
+</div>
+<div base="https://skeeve.github.io/tw5-plugins" created="20180117211712000" modified="20180225125733000" tags="$:/tags/PluginLibrary" title="Skeeve's Plugins Library" url="https://skeeve.github.io/tw5-plugins/library/index.html">
 <pre>The plugin library for plugins made by Skeeve.
 
 This library might contains experimental plugins. Be aware that I update these plugins on occasion.
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" tags="" title="splitgroups" type="">
+<pre>&lt;$list filter=&quot;[[2018-02-25]]&quot;&gt;
+&lt;$splitgroups $separator=&quot;-&quot; year=&quot;$1&quot; month=&quot;$2&quot; day=&quot;$3&quot;&gt;
+created in &lt;&lt;year&gt;&gt; on day &lt;&lt;day&gt;&gt; of month &lt;&lt;month&gt;&gt;
+&lt;/$splitgroups&gt;
+&lt;/$list&gt;
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" tags="" title="splitgroups (concatenating groups)" type="">
+<pre>&lt;$list filter=&quot;[[2018-02-25]]&quot;&gt;
+&lt;$splitgroups $separator=&quot;-&quot; output=&quot;created in $1 on day $3 of month $2&quot;&gt;
+&lt;&lt;output&gt;&gt;
+&lt;/$splitgroups&gt;
+&lt;/$list&gt;
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" tags="" title="splitgroups example">
+<pre>{{splitgroups||$:/Example}}
+
+If you'r just interested in the output the example could also be done like this:
+
+{{splitgroups (concatenating groups)||$:/Example}}
+</pre>
+</div>
+<div created="20180225125733000" modified="20180225125733000" tags="" title="Testdata" type="text/plain">
+<pre>4x01-The Noose.mp4
+4x02-Heathens.mp4
+4x03-Blackbird.mp4
+4x04-Dangerous.mp4
+4x05-The Duel.mp4
+4x06-The Company.mp4
 </pre>
 </div>
 
