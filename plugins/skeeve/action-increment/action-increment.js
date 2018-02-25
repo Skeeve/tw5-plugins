@@ -1,5 +1,5 @@
 /*\
-title: $:/plugins/skeeve/widgets/action-increment.js
+title: $:/plugins/skeeve/action-increment/action-increment.js
 type: application/javascript
 module-type: widget
 

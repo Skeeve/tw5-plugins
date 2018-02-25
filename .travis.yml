@@ -9,6 +9,7 @@ install: true
 
 script:
   - ./timestampadjust.sh plugins gui
+  - find plugins -name \*.js -print0 | xargs -0 grep '^title:'
   - cp -r plugins/* node_modules/tiddlywiki/plugins/
   - ./node_modules/.bin/tiddlywiki . --output output/library --build library
   - ./node_modules/.bin/tiddlywiki . --output output --build gui

@@ -5,7 +5,7 @@ module-type: filteroperator
 
 Filter operator for regexp matching and picking out capturing groups
 
-*/
+\*/
 (function(){
 
 /*jslint node: true, browser: true */
