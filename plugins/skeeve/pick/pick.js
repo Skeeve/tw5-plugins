@@ -92,4 +92,4 @@ exports.pickgroups = function(source,operator,options) {
 	});
 };
 
-)();
+})();
